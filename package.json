@@ -1,0 +1,26 @@
+{
+  "name": "knowledgebase",
+  "version": "1.0.0",
+  "description": "Knowledge Management System API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RusFjord/KnowledgeBase.git"
+  },
+  "keywords": [
+    "API",
+    "node.js",
+    "express"
+  ],
+  "author": {
+    "name": "Fedor Endovitskiy",
+    "email": "f.endovitskiy@ulteam8.ru"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
