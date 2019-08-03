@@ -3,11 +3,13 @@ const config = require('./config');
 
 //routes
 const index = require('./routes/index');
+const users = require('./routes/users');
 const err404 = require('./routes/err404');
 
 const app = express();
 
 app.use('/api_v_1_0', index);
+app.use('/api_v_1_0/users', users);
 
 app.use(err404);
 
