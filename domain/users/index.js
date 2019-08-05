@@ -1,21 +1,11 @@
+const UserModel = require('./model');
+
 module.exports = {
 	findAllUsers: () => {
-		return [
-			{
-				"id": "1",
-				"login": "admin@site.com",
-				"name": "Администратор"
-			},
-			{
-				"id": "2",
-				"login": "user1@site.com",
-				"name": "Пользователь 1"
-			},
-			{
-				"id": "3",
-				"login": "user2@site.com",
-				"name": "Пользователь 2"
-			}
-		];
+		return UserModel.find({}, null);
+	},
+	create: (user) => {
+		const currentUser = new UserModel(user);
+		return currentUser.save();
 	}
 };
