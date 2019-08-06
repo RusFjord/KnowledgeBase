@@ -29,11 +29,29 @@ module.exports = {
 	},
 
 	update: (id, user) => {
-		return UserModel.findById(id, null);
+		return UserModel.findByIdAndUpdate( id, user,(err) => {
+			if (err) {
+				console.log(err);
+				return {
+					name: 'Ошибка запроса к базе данных',
+					description: err
+				};
+			}
+			return {result: 'success'};
+		});
 
 	},
 
 	delete: (id) => {
-
+		return UserModel.findByIdAndUpdate( id, user,(err) => {
+			if (err) {
+				console.log(err);
+				return {
+					name: 'Ошибка запроса к базе данных',
+					description: err
+				};
+			}
+			return {result: 'success'};
+		});
 	}
 };
