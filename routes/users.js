@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
 	res.send(answer)
 });
 
-router.post('/', (req, res) => {
-	const answer = users.create(req.body);
+router.post('/', async (req, res) => {
+	const answer = await users.create(req.body);
 	res.send(answer);
 });
 
