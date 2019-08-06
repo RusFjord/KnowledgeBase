@@ -43,7 +43,7 @@ module.exports = {
 	},
 
 	delete: (id) => {
-		return UserModel.findByIdAndUpdate( id, user,(err) => {
+		return UserModel.findByIdAndDelete( id, (err) => {
 			if (err) {
 				console.log(err);
 				return {
