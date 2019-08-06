@@ -1,11 +1,39 @@
 const UserModel = require('./model');
 
 module.exports = {
-	findAllUsers: () => {
-		return UserModel.find({}, null);
-	},
-	create: (user) => {
+	create: async (user) => {
 		const currentUser = new UserModel(user);
-		return currentUser.save();
+		return currentUser.save().then((err) => {
+			if (err) {
+				console.log(err);
+				return {
+					name: 'Ошибка запроса к базе данных',
+					description: err
+				};
+			}
+			return {result: 'success'};
+		});
+	},
+	read: async (query) => {
+		return UserModel.find(query, (err, users) => {
+			if (err) {
+				console.log(err);
+				return {
+					name: 'Ошибка запроса к базе данных',
+					description: err
+				};
+			}
+			return users;
+		});
+
+	},
+
+	update: (id, user) => {
+		return UserModel.findById(id, null);
+
+	},
+
+	delete: (id) => {
+
 	}
 };
