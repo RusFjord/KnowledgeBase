@@ -2,7 +2,7 @@ const common = require('./repository-common');
 
 module.exports = {
     create: async (Model, data) => {
-        const current = new model(data);
+        const current = new Model(data);
         return current.save().then((err) => {
             if (err) {
                 common.error.data = err;
@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     read: async (Model, query) => {
-        Model.find(query, (err, result) => {
+        return Model.find(query, (err, result) => {
             if (err) {
                 common.error.data = err;
                 return common.error;
@@ -21,7 +21,7 @@ module.exports = {
         });
     },
     update: async (Model, id, data) => {
-        Model.findByIdAndUpdate( id, data,(err) => {
+        return Model.findByIdAndUpdate( id, data,(err) => {
             if (err) {
                 common.error.data = err;
                 return common.error;
@@ -30,7 +30,7 @@ module.exports = {
         });
     },
     delete: async (Model, id) => {
-        Model.findByIdAndDelete( id, (err) => {
+        return Model.findByIdAndDelete( id, (err) => {
             if (err) {
                 common.error.data = err;
                 return common.error;
