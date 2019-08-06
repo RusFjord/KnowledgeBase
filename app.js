@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 const config = require('./config');
 
@@ -14,7 +14,8 @@ const err404 = require('./routes/err404');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api_v_1_0', index);
 app.use('/api_v_1_0/users', users);
