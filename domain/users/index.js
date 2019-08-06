@@ -1,57 +1,19 @@
 const UserModel = require('./model');
+const repository = require('../repository');
 
 module.exports = {
 	create: async (user) => {
-		const currentUser = new UserModel(user);
-		return currentUser.save().then((err) => {
-			if (err) {
-				console.log(err);
-				return {
-					name: 'Ошибка запроса к базе данных',
-					description: err
-				};
-			}
-			return {result: 'success'};
-		});
+		return await repository.create(UserModel, user);
 	},
 	read: async (query) => {
-		return UserModel.find(query, (err, users) => {
-			if (err) {
-				console.log(err);
-				return {
-					name: 'Ошибка запроса к базе данных',
-					description: err
-				};
-			}
-			return users;
-		});
-
+		return await repository.read(UserModel, query);
 	},
 
-	update: (id, user) => {
-		return UserModel.findByIdAndUpdate( id, user,(err) => {
-			if (err) {
-				console.log(err);
-				return {
-					name: 'Ошибка запроса к базе данных',
-					description: err
-				};
-			}
-			return {result: 'success'};
-		});
-
+	update: async (id, user) => {
+		return await repository.update(UserModel, id, user);
 	},
 
-	delete: (id) => {
-		return UserModel.findByIdAndDelete( id, (err) => {
-			if (err) {
-				console.log(err);
-				return {
-					name: 'Ошибка запроса к базе данных',
-					description: err
-				};
-			}
-			return {result: 'success'};
-		});
+	delete: async (id) => {
+		return await repository.delete(UserModel, id);
 	}
 };
