@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const UserRoleScheme = new mongoose.Schema({
-    user: ObjectId,
-    role: ObjectId
+    user: mongoose.Schema.ObjectId,
+    role: mongoose.Schema.ObjectId
 });
 
 const userRoleModel = mongoose.model('UserRole', UserRoleScheme);

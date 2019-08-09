@@ -11,6 +11,7 @@ mongoose.connect(config.db.path, {useNewUrlParser: true });
 const index = require('./routes/index');
 const users = require('./routes/users');
 const rights = require('./routes/rights');
+const userRoles = require('./routes/user_roles');
 const err404 = require('./routes/err404');
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api_v_1_0', index);
 app.use('/api_v_1_0/users', users);
 app.use('/api_v_1_0/rights', rights);
+app.use('/api_v_1_0/user-roles', rights);
 
 app.use(err404);
 

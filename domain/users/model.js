@@ -4,7 +4,7 @@ const UserScheme = new mongoose.Schema({
     login: String,
     pass: String,
     name: String,
-    right: ObjectId
+    right: mongoose.Schema.ObjectId
 });
 
 const userModel = mongoose.model('User', UserScheme);
