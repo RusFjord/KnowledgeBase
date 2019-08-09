@@ -13,6 +13,8 @@ const users = require('./routes/users');
 const rights = require('./routes/rights');
 const userRoles = require('./routes/user_roles');
 const tags = require('./routes/tags');
+const roles = require('./routes/roles');
+
 const err404 = require('./routes/err404');
 
 const app = express();
@@ -25,6 +27,7 @@ app.use('/api_v_1_0/users', users);
 app.use('/api_v_1_0/rights', rights);
 app.use('/api_v_1_0/user-roles', userRoles);
 app.use('/api_v_1_0/tags', tags);
+app.use('/api_v_1_0/roles', roles);
 
 app.use(err404);
 
