@@ -9,7 +9,6 @@ mongoose.connect(config.db.path, {useNewUrlParser: true });
 //routes
 const index 		= require('./routes/index');
 const users 		= require('./routes/users');
-const rights 		= require('./routes/rights');
 const userRoles 	= require('./routes/user_roles');
 const tags 			= require('./routes/tags');
 const roles 		= require('./routes/roles');
@@ -24,7 +23,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api_v_1_0', index);
 app.use('/api_v_1_0/users', users);
-app.use('/api_v_1_0/rights', rights);
 app.use('/api_v_1_0/user-roles', userRoles);
 app.use('/api_v_1_0/tags', tags);
 app.use('/api_v_1_0/roles', roles);
